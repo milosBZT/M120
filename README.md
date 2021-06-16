@@ -1,30 +1,8 @@
 # M120
 
 ## Running the project
+The project is run by executing following command
 ```bash
 docker-compose up
 ```
-
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+After that, the webservice should run on localhost:11111
