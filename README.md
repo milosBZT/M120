@@ -1,4 +1,4 @@
-# delta-project
+# M120
 
 ## Project setup
 ```
