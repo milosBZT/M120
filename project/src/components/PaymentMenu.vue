@@ -86,7 +86,8 @@
         <div class="info-hops" v-if="connection.hops">{{connection.hops}}x umsteigen</div>
         <div class="info-discount" v-if="form.discountOption != 'none'">{{discountOptions[1].name}}</div>
         <div class="info-class" v-if="form.classType != 'none'">{{classOptionNames[form.classType]}}</div>
-        <div class="info-price">{{calcTicketPrice}} CHF</div>
+        <div class="info-price" v-if="calcTicketPrice">{{calcTicketPrice}} CHF</div>
+        <div class="info-price" v-else>{{connection.price}} CHF</div>
     </div>
 </div>
 </template>
@@ -154,20 +155,16 @@ export default {
         }
     },
 
-    mounted() {
-        console.log({CONN: this.connection});
-    },
+    mounted() {},
 
 
     methods: {
-
         renderBirthday() {
             const now = moment(new Date(), 'YYYY-MM-DD');
             const birthday = moment(this.form.birthday, 'YYYY-MM-DD');
             const diff = now.diff(birthday, 'years');
             this.form.isChild = diff <= 16;
         },
-
 
         async goToPayment(input) {
             console.log({formData: this.form});
@@ -177,10 +174,8 @@ export default {
         },
 
 
-
         calculateTicketPrice() {
-            let price = this.ticketPrice;
-
+            let price = this.connection.price;
 
             if (this.form.discountOption == 'halbtax' || this.form.isChild) {
                 console.log("halbtax or child...");

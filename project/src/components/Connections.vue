@@ -176,7 +176,7 @@ export default {
 
 
         calcBasePrice(duration) {
-            return Math.round(duration * 0.005 * 100) / 100;
+            return Math.round(duration * 0.005 * 10) / 10;
         },
 
 
