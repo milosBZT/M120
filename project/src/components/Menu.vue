@@ -8,9 +8,9 @@
         <div ref="menu-elem" class="menu-item connections active" @click="$emit('menu-selection', 'connections')">
             Verbindungen
         </div>
-        <div ref="menu-elem" class="menu-item history" @click="$emit('menu-selection', 'history')">
+        <!-- <div ref="menu-elem" class="menu-item history" @click="$emit('menu-selection', 'history')">
             Meine Fahrten
-        </div>
+        </div> -->
     </div>
   </div>
 </template>

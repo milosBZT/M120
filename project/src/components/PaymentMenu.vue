@@ -240,11 +240,15 @@ export default {
                 this.errorMsgs.push('Geburtsdatum angeben');
                 valid = false;
             } else {
-                if (moment(this.form.birthday).isAfter('2020-01-01', 'day')
-                    || moment(this.form.birthday).isBefore('1900-01-01', 'day')) {
-                    this.errorMsgs.push('Gültiges Geburtsdatum angeben');
+                if (moment(this.form.birthday).isAfter('2020-01-01', 'day')) {
+                    this.errorMsgs.push('Gültiges Geburtsdatum angeben (zu jung)');
                     this.markInputError('#birthday-date');
-                    valid = false;                    
+                    valid = false;
+                }
+                else if (moment(this.form.birthday).isBefore('1900-01-01', 'day')) {
+                    this.errorMsgs.push('Gültiges Geburtsdatum angeben (zu alt)');
+                    this.markInputError('#birthday-date');
+                    valid = false;
                 }
             }
 
@@ -269,12 +273,6 @@ export default {
                 const returnDateTime = `${this.form.returnDate} ${this.form.returnTime}`;
                 const toDateTime = this.connection.arrivalDateTime;
 
-                console.log({
-                    real: toDateTime,
-                    have: returnDateTime
-                });
-
-
                 if (moment(returnDateTime).isSameOrBefore(toDateTime, 'minute')) {
                     this.markInputError('input.return-date');
                     this.markInputError('input.return-time');
@@ -283,7 +281,6 @@ export default {
                 }
             }
 
-            // this.errorMsgs = [...new Set(this.errorMsgs)];
             return true;
         },
 
