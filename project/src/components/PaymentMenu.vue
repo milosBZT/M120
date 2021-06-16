@@ -1,5 +1,8 @@
 <template>
 <div id="payment-view" class="container menu-element">
+    <div class="success-area" v-if="success">
+        <span class="success-buy-tag">Ticket wurde erfolgreich bezahlt</span>
+    </div>
     <div class="error-area" v-if="errorMsgs.length">
         <span v-for="(msg, index) in errorMsgs" :key="index" class="error-tag">
             <span class="error-tag">{{msg}}</span>
@@ -72,7 +75,7 @@
             </div>
         </div>
         <div class="search-button-area" @click="goToPayment">
-            <button v-tooltip="'fck'" class="search-button">Zur Kasse</button>
+            <button class="search-button">Zur Kasse</button>
         </div>
     </div>
     <div class="ticket-info-box">
@@ -116,6 +119,7 @@ export default {
             options: [],
             exactTitle: '',
             errorMsgs: [],
+            success: false,
             form: {
                 name: '',
                 surname: '',
@@ -169,7 +173,24 @@ export default {
         async goToPayment(input) {
             console.log({formData: this.form});
             if (this.validateInput()) {
-                // this.fetchData();
+                if (confirm("Wollen Sie wirklich bezahlen?")) {
+
+                    this.form.name = '';
+                    this.form.surname = '';
+                    this.form.birthday = '';
+                    this.form.discountOption = 'none';
+                    this.form.twoWay = false;
+                    this.form.returnTime = '';
+                    this.form.returnDate = '';
+                    this.form.classType = 'none';
+                    this.form.isChild = false;
+
+                    this.success = true;
+                    setTimeout(function(self) {
+                        console.log(this);
+                        self.success = false;
+                    }, 5000, this);
+                }
             }
         },
 
@@ -281,7 +302,7 @@ export default {
                 }
             }
 
-            return true;
+            return valid;
         },
 
 
@@ -316,6 +337,7 @@ export default {
 * {
     font-family: 'HeaderFontRegular';
 }
+
 .error-tag {
     background: rgb(63, 33, 33);
     padding: 7px 5px 7px 5px;
@@ -325,7 +347,18 @@ export default {
     margin-left: 10px;
 }
 
-.error-area {
+.success-buy-tag {
+    background: rgb(43, 65, 38);
+    padding: 7px 10px 7px 10px;
+    border-radius: 10px;
+    font-size: 1em;
+    color: rgb(163, 255, 168);
+    /* margin-left: 10px; */
+}
+
+.error-area,
+.success-area
+{
     /* width: 100%; */
     position: absolute;
     top: 60px;
@@ -344,6 +377,10 @@ export default {
     justify-content: center;
     align-items: center;
 }
+
+
+
+
 
 
 .info-route-label {
