@@ -1,5 +1,11 @@
 # M120
 
+## Running the project
+```bash
+docker-compose up
+```
+
+
 ## Project setup
 ```
 npm install
