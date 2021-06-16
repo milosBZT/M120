@@ -35,8 +35,6 @@ export default {
     Header,
     Menu,
     Connections,
-    // ContractArea,
-    // Footer,
     PaymentMenu
   },
 
@@ -72,6 +70,8 @@ export default {
         const payment_view = document.querySelector('#payment');
         payment_view.style.visibility = 'visible';
         this.selectedConnection = connection;
+
+        console.log({SELECTED: this.selectConnectionForPayment});
         console.log({this: this});
     },
 

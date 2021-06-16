@@ -27,7 +27,7 @@
                     </td>
 
                     <td class="td-line"><div>{{connection.line}}</div></td>
-                  
+
                     <td class="departure-arrival-cell">
                         {{connection.departureTime}}
                     </td>
@@ -37,7 +37,7 @@
                     <td v-if="true"><div class="td track">{{connection.track}}</div></td>
                     <td class="td-price">
                         <div class="td price" @click="$emit('connection-selection', emitSelected(connection))">
-                            <span style="white-space: nowrap">{{connection.price}}</span>
+                            <span style="white-space: nowrap">{{connection.price}} CHF</span>
                         </div>
                     </td>
                 </tr>

@@ -94,9 +94,6 @@
 
 <script>
 const moment = require('moment');
-// import * as utils from "../tx.js";
-import axios from 'axios';
-import uniqueId from 'lodash.uniqueid';
 
 /**
  * 
@@ -131,8 +128,8 @@ export default {
             },
 
             returnDateTime: '',
-            ticketPrice: 214.15,
-            calcTicketPrice: 214.15,
+            ticketPrice: 0,//214.15,
+            calcTicketPrice: null,
 
             discountOptions: [
                 {name: 'keine Ermässigungen', value: 'no_discount'},
@@ -158,6 +155,7 @@ export default {
     },
 
     mounted() {
+        console.log({CONN: this.connection});
     },
 
 

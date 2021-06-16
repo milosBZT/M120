@@ -1,13 +1,11 @@
 <template>
     <div class="newsfeed-container">
         <div class="connections-body">
-        <div class="error-area" v-if="errorMsgs.length">
-            <span v-for="(msg, index) in errorMsgs" :key="index" class="error-tag">
-                <span class="error-tag">{{msg}}</span>
-            </span>
-        </div>
-
-        <!-- <div class="error-area" v-if="errorMsgs.length">{{ errorMsgs.join(' -- ')}}</div> -->
+            <div class="error-area" v-if="errorMsgs.length">
+                <span v-for="(msg, index) in errorMsgs" :key="index" class="error-tag">
+                    <span class="error-tag">{{msg}}</span>
+                </span>
+            </div>
             <div class="connections-box">
                 <div class="header">
                     <div class="header-title">{{ headerTitle }}</div>
@@ -65,9 +63,7 @@
 
 <script>
 import MainConnectionsMenu from './MainConnectionsMenu';
-import ConnectionsTable from './ConnectionsTable';
 import TxTable from './TxTable.vue';
-const NEWS_API_KEY = 'wkrathsw40hnwxw6cal9ilmvl1qz6ljm2ffadmmc';
 import axios from 'axios';
 const moment = require('moment');
 import uniqueId from 'lodash.uniqueid';
@@ -75,7 +71,6 @@ import uniqueId from 'lodash.uniqueid';
 export default {
     components: {
         MainConnectionsMenu,
-        ConnectionsTable,
         TxTable
     },
     name: 'Connections',
@@ -163,7 +158,6 @@ export default {
             const data = await axios({
                 method: 'get',
                 url: url,
-                // url: 'http://transport.opendata.ch/v1/connections?from=Lausanne&to=Genève',
                 responseType: 'json'
             });
 
@@ -178,9 +172,13 @@ export default {
             } else {
                 this.failedFindConnections = true;
             }
-
-            // this.connections.push(...this.formatConnectionsData(data.data.connections));
         },
+
+
+        calcBasePrice(duration) {
+            return Math.round(duration * 0.005 * 100) / 100;
+        },
+
 
         formatConnectionsData(data) {
             if (!data) {
@@ -205,7 +203,7 @@ export default {
                     duration: this.secondsToHours(row.duration),
                     hops: row.legs.length - 1,
                     track: row.legs[0].track,
-                    price: `234.34 CHF`,
+                    price: this.calcBasePrice(row.duration),
                     typeSvgData: this.getSvg(row.legs[0].type_name),
                 });
             }
