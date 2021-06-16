@@ -69,7 +69,7 @@
                     </div>
                     <div class=" input-field clock-input">
                         <label for="clock-input">Uhrzeit</label>
-                        <input type="time" id="return-time" class="return-time place-input" v-model="form.returnTime" required @keypress="inputKeypress" @click="inputKeypress"/>
+                        <input type="time" step="60" id="return-time" class="return-time place-input" v-model="form.returnTime" required @keypress="inputKeypress" @click="inputKeypress"/>
                     </div>
                 </div>
             </div>
@@ -337,6 +337,11 @@ export default {
 * {
     font-family: 'HeaderFontRegular';
 }
+
+.info-birthday {
+    margin-top: 5px;
+}
+
 
 .error-tag {
     background: rgb(63, 33, 33);
