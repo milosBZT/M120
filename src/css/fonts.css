@@ -1,0 +1,12 @@
+
+@font-face {
+    font-family: 'HeaderFontRegular';
+    src: url('../assets/fonts/Gudea-Regular.ttf');
+}
+
+
+@font-face {
+    font-family: 'HeaderFontBold';
+    src: url('../assets/fonts/Gudea-Bold.ttf');
+}
+

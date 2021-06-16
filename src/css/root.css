@@ -1,0 +1,83 @@
+
+:root {
+    --container-padding: 15px;
+
+    --header-color: #444444;
+    --border-color: #aaaaaa5f;
+    --border-medium: #6464645f;
+    --border-color-darker: #4b4b4b5f;
+    --border-color-grey:var(--on-primary-color);
+    --border-color-black: var(--on-primary-color);
+    /* --border-color-grey: #aaaaaa5f; */
+    --icon-color: rgb(45, 126, 192);
+
+
+    --bg-color-new: rgb(25, 27, 31);
+
+
+    --on-bg-color-light: #ffffffde;
+    --on-bg-color-medium: #ffffff99;
+    --on-bg-color-dark: #ffffff61;
+
+
+    --primary-color-light: #c598fc;
+    --primary-color: #bb86fc;
+    --primary-color-semi: #bb86fc80;
+    --primary-color-dimm: #bb86fc40;
+    --primary-color-dimmer: #bb86fc20;
+    --primary-color-very-dim: #bb86fc15;
+    --primary-variant-color: #3700b3;
+
+
+    
+    --secondary-color: #4a7fdb;
+    --secondary-color-light: #769fe6;
+    --button-color: #3674dd;
+    --button-color-pressed: #2d5fb6;
+    --secondary-color-semi: #253a5a;
+    --secondary-color-dark: #1b2a40;
+
+
+    /* --bg-color: #121212; */
+    --bg-color: #1f1e1e;
+    --bg-color-lighter: #222429;
+    /* --bg-color-darker: #050505; */
+    --bg-color-darker: #191b1f;
+
+    --surface-color: #121212;
+    /* --surface-color-2dp: linear-gradient(var(--surface-color), var(--surface-color)), linear-gradient(rgba(#ffffff, 0.05), rgba(#ffffff, 0.05)); */
+
+    /* --surface-color-2dp: tint(var(--bg-color), 20%); */
+    --surface-color-2dp: #181818;
+    /* linear-gradient(var(--surface-color), rgba(#ffffff, 0.05)), */
+    /* linear-gradient(white, white); */
+
+    /* --surface-color-2dp: rgba(var(--surface-color), 0.07); */
+    --surface-color-3dp: rgba(var(--surface-color), 0.08);
+    --surface-color-4dp: rgba(var(--surface-color), 0.09);
+    --surface-color-6dp: rgba(var(--surface-color), 0.11);
+    /* 00dp	0%
+    01dp	5%
+    02dp	7%
+    03dp	8%
+    04dp	9%
+    06dp	11%
+    08dp	12%
+    12dp	14%
+    16dp	15%
+    24dp	16% */
+
+
+    --on-primary-color: #000000;
+    --on-secondary-color: #000000;
+    --error-color: #cf6679;
+    --on-error-color: #000000; 
+}
+
+
+
+@font-face {
+    font-family: 'Monaco';
+    src: url('../assets/fonts/Monaco.ttf');
+}
+
